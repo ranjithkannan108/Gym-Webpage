@@ -1,0 +1,401 @@
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* for heading */
+#heading {
+    display: grid;
+    grid-template-columns: 60px auto;
+    align-items: center;
+    background-color: black;
+    border-bottom: 3px solid white;
+}
+
+#heading img {
+
+    width: 50px;
+    margin: 5px;
+}
+
+#heading h1 {
+    color: yellow;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+
+/* option */
+#option a {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on small screens */
+    justify-content: space-evenly;
+    gap: 20px;
+    text-transform: capitalize;
+    list-style-type: none;
+    text-decoration: none;
+    color: yellow;
+}
+
+#option ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0.1rem;
+}
+
+#option {
+    background-color: black;
+    position: sticky;
+    top: 0px;
+    padding: 0.5rem;
+    border-bottom: 3px solid white;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.644);
+    text-align: center;
+    z-index: 100;
+}
+
+#option a:hover {
+    background-color: yellow;
+    color: black;
+    border: 1px dashed yellow;
+    padding: 0.2rem;
+    border-radius: 5px;
+    transition: 0.1s ease-out;
+}
+
+/* profile */
+
+.title h2 {
+    border: 1px solid white;
+    text-transform: uppercase;
+    color: yellow;
+    background-color: black;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+.title h2 {
+    margin: 0 auto;
+}
+
+#front img {
+    display: flow-root;
+    float: bottom;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+#front p {
+    padding: 10px;
+    text-align: center;
+}
+
+#front b {
+    color: yellow;
+    text-shadow: 1px 1px 3px black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#infra {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on small screens */
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+#infra img {
+
+    padding: 3px;
+    margin: 7px;
+    border: 1px solid black;
+    border-radius: 20px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+
+/* about us */
+#owner {
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+    width: min-content;
+    padding: 1rem;
+    margin: 0 auto;
+    background-color: rgba(217, 213, 213, 0.504);
+}
+
+/* onwer image */
+#owner img {
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+/* owner content */
+#owner p {
+    text-transform: uppercase;
+    width: fit-content;
+    padding-left: 5px;
+    padding-right: 5px;
+    color: yellow;
+    text-shadow: 1px 1px 3px black;
+    background-color: black;
+    margin: 0 auto;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+/* traniner image */
+#trainer {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on small screens */
+    justify-content: space-evenly;
+    gap: 20px;
+    /* Space between cards */
+    padding: 20px;
+    padding-top: 0.5rem;
+}
+
+/* tranier conent */
+#trainer p {
+    text-transform: uppercase;
+    width: fit-content;
+    color: yellow;
+    background-color: black;
+    margin: 0 auto;
+    padding-left: 5px;
+    padding-right: 5px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+#trainer img {
+    border-radius: 5px;
+    border: 2px solid rgb(0, 0, 0);
+}
+
+.trainers {
+    background-color: rgba(217, 213, 213, 0.504);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+    width: fit-content;
+    padding: 0.5rem;
+}
+
+/* happy clients */
+#happy {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on small screens */
+    justify-content: space-evenly;
+    gap: 10px;
+    /* Space between cards */
+    /* padding:10px; */
+    padding-top: 0.5rem;
+}
+
+.happy {
+    border-top: 10px solid black;
+    border-bottom: 10px solid black;
+    border-right: 2px solid black;
+    border-left: 2px solid black;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+/* gym package */
+.package-card {
+    background-color: #111;
+    color: yellow;
+    border: 2px solid white;
+    border-radius: 10px;
+    margin: 1rem;
+    padding: 1.5rem;
+    width: 260px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+}
+
+.package-card:hover {
+    background-color: yellow;
+    color: black;
+
+}
+
+.package-card h3 {
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 1px dashed white;
+    margin: 10px;
+    padding: 10px;
+}
+
+.package-card ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.gpack table {
+    margin: 0 auto;
+}
+
+.gpack {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+    padding: 1rem;
+}
+
+/* contact */
+.detail {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border: 1px solid white;
+    text-transform: capitalize;
+    color: yellow;
+    background-color: black;
+    /* width:max-content;
+   height:max-content; */
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+}
+
+#in {
+    display: flex;
+    flex-wrap: wrap;
+    /* Allows wrapping on small screens */
+    justify-content: space-evenly;
+    gap: 10px;
+    color: yellow;
+    border: 1px solid rgb(255, 255, 255);
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+    margin-top: 1rem;
+    background-color: black;
+}
+
+#in button {
+    background-color: black;
+    color: yellow;
+    display: flex;
+    border: 2px solid yellow;
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-radius: 5px;
+}
+
+#in button:hover {
+    background-color: yellow;
+    color: black;
+}
+
+form h3,
+button {
+    margin: 1rem;
+}
+
+#in button {
+    margin: 3rem;
+}
+
+#in h2 {
+    text-transform: uppercase;
+    border-bottom: 1px dashed white;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: yellow;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== RESPONSIVE NAV ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #option nav {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #option ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding-top: 0.5rem;
+        grid-template-columns: 1fr;
+    }
+
+    #option ul.show {
+        display: flex;
+    }
+
+    #option li {
+        text-align: center;
+        padding: 0.4rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    #option a {
+        display: block;
+        padding: 0.5rem 1rem;
+    }
+}
