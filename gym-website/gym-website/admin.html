@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan Fitness - Admin Panel</title>
+    <script>
+        if (sessionStorage.getItem('isAdminLoggedIn') !== 'true') {
+            window.location.href = 'admin-login.html';
+        }
+    </script>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <!-- Header (same style as main website) -->
+    <div id="heading">
+        <img width="50" height="50" src="../asset/gymlogo.jpg" alt="logo">
+        <h1>Titan Fitness <span class="admin-tag">Admin</span></h1>
+    </div>
+
+    <!-- Navigation Bar with Hamburger -->
+    <div id="option">
+        <nav>
+            <button class="hamburger" id="hamburgerBtn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul id="navMenu">
+                <li><a href="#" class="nav-active" onclick="switchSection('dashboard',this)">dashboard</a></li>
+                <li><a href="#" onclick="switchSection('members',this)">members</a></li>
+                <li><a href="#" onclick="logoutAdmin()">logout</a></li>
+                <li><a href="index.html">view website</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- ====== DASHBOARD SECTION ====== -->
+    <section id="dashboardSection" class="admin-section active">
+        <br>
+        <div class="title"><br>
+            <h2>dashboard</h2>
+        </div><br>
+
+        <!-- Stats Cards -->
+        <div class="stats-row">
+            <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-value" id="totalMembers">0</div>
+                <div class="stat-label">Total Members</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">💰</div>
+                <div class="stat-value" id="totalFees">₹0</div>
+                <div class="stat-label">Total Fees</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🥉</div>
+                <div class="stat-value" id="package1Count">0</div>
+                <div class="stat-label">Starter Fit</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🥈</div>
+                <div class="stat-value" id="package2Count">0</div>
+                <div class="stat-label">Titan Pro</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🥇</div>
+                <div class="stat-value" id="package3Count">0</div>
+                <div class="stat-label">Elite Warrior</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">🗓️</div>
+                <div class="stat-value" id="package4Count">0</div>
+                <div class="stat-label">Weekend Hustler</div>
+            </div>
+        </div>
+
+        <!-- Recent Members -->
+        <br>
+        <div class="title">
+            <h2>recent members</h2>
+        </div><br>
+        <div class="admin-card">
+            <div class="table-wrap">
+                <table border="2px">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Package</th>
+                            <th>Fees (₹)</th>
+                            <th>Joining Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recentMembersBody"></tbody>
+                </table>
+                <p class="empty-msg" id="recentEmpty">No members yet. Add your first member!</p>
+            </div>
+            <br>
+            <button class="action-btn" onclick="switchSection('members')">View All Members</button>
+        </div>
+    </section>
+
+    <!-- ====== MEMBERS SECTION ====== -->
+    <section id="membersSection" class="admin-section">
+        <br>
+        <div class="title"><br>
+            <h2>add / edit member</h2>
+        </div><br>
+
+        <!-- Add / Edit Form -->
+        <div class="admin-card">
+            <h3 id="formTitle">➕ Add New Member</h3><br>
+            <form id="memberForm">
+                <input type="hidden" id="editId">
+                <div class="form-row">
+                    <div class="form-field">
+                        <label for="memberName">Full Name</label>
+                        <input type="text" id="memberName" placeholder="Enter member name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="memberPackage">Package</label>
+                        <select id="memberPackage" required>
+                            <option value="">Select Package</option>
+                            <option value="Starter Fit">Starter Fit</option>
+                            <option value="Titan Pro">Titan Pro</option>
+                            <option value="Elite Warrior">Elite Warrior</option>
+                            <option value="Weekend Hustler">Weekend Hustler</option>
+                        </select>
+                    </div>
+                    <div class="form-field">
+                        <label for="memberFees">Fees (₹)</label>
+                        <input type="number" id="memberFees" placeholder="Enter fees" min="0" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="memberDate">Joining Date</label>
+                        <input type="date" id="memberDate" required>
+                    </div>
+                </div>
+                <br>
+                <button type="submit" class="action-btn" id="submitBtn">Add Member</button>
+                <button type="button" class="action-btn cancel-btn" id="cancelBtn" onclick="cancelEdit()"
+                    style="display:none;">Cancel</button>
+            </form>
+        </div>
+
+        <!-- Filters -->
+        <br>
+        <div class="title">
+            <h2>🔍 filter members</h2>
+        </div><br>
+        <div class="admin-card">
+            <div class="form-row">
+                <div class="form-field">
+                    <label for="filterName">Name</label>
+                    <input type="text" id="filterName" placeholder="Search by name..." oninput="applyFilters()">
+                </div>
+                <div class="form-field">
+                    <label for="filterPackage">Package</label>
+                    <select id="filterPackage" onchange="applyFilters()">
+                        <option value="">All Packages</option>
+                        <option value="Starter Fit">Starter Fit</option>
+                        <option value="Titan Pro">Titan Pro</option>
+                        <option value="Elite Warrior">Elite Warrior</option>
+                        <option value="Weekend Hustler">Weekend Hustler</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="filterDateFrom">From Date</label>
+                    <input type="date" id="filterDateFrom" onchange="applyFilters()">
+                </div>
+                <div class="form-field">
+                    <label for="filterDateTo">To Date</label>
+                    <input type="date" id="filterDateTo" onchange="applyFilters()">
+                </div>
+            </div>
+            <br>
+            <button class="action-btn cancel-btn" onclick="clearFilters()">Clear Filters</button>
+        </div>
+
+        <!-- Members Table -->
+        <br>
+        <div class="title">
+            <h2>📋 all members <span id="filteredCount"></span></h2>
+        </div><br>
+        <div class="admin-card">
+            <div class="table-wrap">
+                <table border="2px">
+                    <thead>
+                        <tr>
+                            <th>S.No</th>
+                            <th>Name</th>
+                            <th>Package</th>
+                            <th>Fees (₹)</th>
+                            <th>Joining Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTableBody"></tbody>
+                </table>
+                <p class="empty-msg" id="membersEmpty">No members found.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delete Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal-box">
+            <h2>⚠️ Delete Member?</h2>
+            <p>This action cannot be undone.</p><br>
+            <button class="action-btn delete-confirm-btn" id="confirmDeleteBtn">Delete</button>
+            <button class="action-btn cancel-btn" onclick="closeModal()">Cancel</button>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast"></div>
+
+    <script src="admin.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titan Fitness - Admin Login</title>
+    <link rel="stylesheet" href="admin.css">
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+            background-image: url('../asset/gimage.jpeg');
+            background-size: cover;
+            background-position: center;
+        }
+        .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: -1;
+        }
+        .login-box {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            background-color: black;
+            box-shadow: 0px 0px 10px 3px rgba(255, 255, 0, 0.2);
+            border: 2px solid white;
+        }
+        .login-box .form-field {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .login-box label {
+            color: yellow;
+        }
+        .error-msg {
+            color: #ff4444;
+            margin-bottom: 15px;
+            display: none;
+            font-weight: bold;
+        }
+        .site-link {
+            color: yellow;
+            text-decoration: none;
+            font-size: 14px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .site-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="overlay"></div>
+    <div class="admin-card login-box">
+        <img width="50" height="50" src="../asset/gymlogo.jpg" alt="logo" style="margin-bottom:20px;">
+        <h2 style="color: yellow; text-transform: uppercase;">Admin Login</h2>
+        <br>
+        <p class="error-msg" id="errorMsg">Invalid username or password.</p>
+        <form id="loginForm">
+            <div class="form-field">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter username" required>
+            </div>
+            <div class="form-field">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter password" required>
+            </div>
+            <button type="submit" class="action-btn" style="width: 100%;">Login</button>
+        </form>
+        <br>
+        <a href="index.html" class="site-link">&larr; Back to Website</a>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const user = document.getElementById('username').value;
+            const pass = document.getElementById('password').value;
+
+            if (user === 'admin' && pass === '123') {
+                sessionStorage.setItem('isAdminLoggedIn', 'true');
+                window.location.href = 'admin.html';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>

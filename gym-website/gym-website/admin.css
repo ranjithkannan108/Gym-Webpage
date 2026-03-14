@@ -1,0 +1,513 @@
+/* ===== RESET (same as main site) ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: black;
+}
+
+/* ===== HEADER (matches index.css #heading) ===== */
+#heading {
+    display: grid;
+    grid-template-columns: 60px auto;
+    align-items: center;
+    background-color: black;
+    border-bottom: 3px solid white;
+}
+
+#heading img {
+    width: 50px;
+    margin: 5px;
+}
+
+#heading h1 {
+    color: yellow;
+    padding: 1rem;
+    text-transform: uppercase;
+}
+
+.admin-tag {
+    font-size: 0.5em;
+    background: yellow;
+    color: black;
+    padding: 2px 8px;
+    border-radius: 4px;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== NAV BAR (matches index.css #option) ===== */
+#option {
+    background-color: black;
+    position: sticky;
+    top: 0;
+    padding: 0.5rem;
+    border-bottom: 3px solid white;
+    box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.644);
+    text-align: center;
+    z-index: 100;
+}
+
+#option ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    gap: 0.5rem;
+}
+
+#option a {
+    text-decoration: none;
+    color: yellow;
+    text-transform: capitalize;
+    padding: 0.3rem 0.8rem;
+    border-radius: 5px;
+    transition: 0.1s ease-out;
+}
+
+#option a:hover,
+#option a.nav-active {
+    background-color: yellow;
+    color: black;
+    border: 1px dashed yellow;
+    padding: 0.2rem 0.8rem;
+    border-radius: 5px;
+}
+
+/* ===== HAMBURGER MENU ===== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    background-color: yellow;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ===== SECTION TITLE (matches .title h2 from index.css) ===== */
+.title h2 {
+    border: 1px solid white;
+    text-transform: uppercase;
+    color: yellow;
+    background-color: black;
+    width: fit-content;
+    height: fit-content;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+    margin: 0 auto;
+}
+
+/* ===== SECTIONS ===== */
+.admin-section {
+    display: none;
+    padding: 0 1rem 2rem;
+}
+
+.admin-section.active {
+    display: block;
+}
+
+/* ===== STATS CARDS ===== */
+.stats-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px;
+    padding: 0.5rem;
+}
+
+.stat-card {
+    background-color: black;
+    color: yellow;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    min-width: 150px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+    transition: 0.2s ease;
+}
+
+.stat-card:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.stat-icon {
+    font-size: 1.8rem;
+    margin-bottom: 0.3rem;
+}
+
+.stat-value {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    margin-top: 0.2rem;
+    text-transform: uppercase;
+}
+
+/* ===== ADMIN CARD (general container) ===== */
+.admin-card {
+    background-color: rgba(217, 213, 213, 0.504);
+    border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: 0px 0px 3px 2px rgba(0, 0, 0, 0.644);
+    padding: 1.2rem;
+    margin: 0 auto;
+    max-width: 1100px;
+}
+
+.admin-card h3 {
+    color: yellow;
+    background-color: black;
+    width: fit-content;
+    padding: 0.2rem 1rem;
+    border: 1px solid white;
+    border-radius: 5px;
+    text-transform: uppercase;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ===== FORM ===== */
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 15px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 200px;
+    flex: 1;
+}
+
+.form-field label {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.form-field input,
+.form-field select {
+    padding: 0.6rem 0.8rem;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background: white;
+    color: black;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+    border-color: yellow;
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.4);
+}
+
+/* ===== BUTTONS (matches main site button style) ===== */
+.action-btn {
+    background-color: black;
+    color: yellow;
+    border: 2px solid yellow;
+    text-align: center;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.2s ease;
+}
+
+.action-btn:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.cancel-btn {
+    border-color: white;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: white;
+    color: black;
+}
+
+.edit-btn {
+    background-color: black;
+    color: yellow;
+    border: 1px solid yellow;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.edit-btn:hover {
+    background-color: yellow;
+    color: black;
+}
+
+.del-btn {
+    background-color: black;
+    color: #ff4444;
+    border: 1px solid #ff4444;
+    padding: 0.3rem 0.7rem;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.del-btn:hover {
+    background-color: #ff4444;
+    color: white;
+}
+
+.delete-confirm-btn {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
+.delete-confirm-btn:hover {
+    background-color: #ff4444;
+    color: white;
+}
+
+/* ===== TABLE ===== */
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: black;
+    color: yellow;
+}
+
+thead th {
+    text-align: left;
+    padding: 0.7rem 0.8rem;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-bottom: 2px solid white;
+    color: yellow;
+    background: black;
+}
+
+tbody td {
+    padding: 0.7rem 0.8rem;
+    font-size: 0.88rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 0, 0.08);
+}
+
+.actions-cell {
+    display: flex;
+    gap: 0.4rem;
+}
+
+/* ===== PACKAGE BADGES ===== */
+.pkg-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 5px;
+    font-size: 0.78rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 1px solid white;
+}
+
+/* ===== EMPTY STATE ===== */
+.empty-msg {
+    text-align: center;
+    color: yellow;
+    background: black;
+    padding: 1.5rem;
+    font-size: 0.9rem;
+}
+
+/* ===== MODAL ===== */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 200;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.show {
+    display: flex;
+}
+
+.modal-box {
+    background: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+    color: yellow;
+    box-shadow: 0px 0px 10px 3px rgba(255, 255, 0, 0.2);
+}
+
+.modal-box h2 {
+    margin-bottom: 0.5rem;
+}
+
+.modal-box p {
+    color: white;
+    font-size: 0.9rem;
+}
+
+/* ===== TOAST ===== */
+.toast {
+    position: fixed;
+    bottom: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    border: 2px solid yellow;
+    color: yellow;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    z-index: 300;
+    transition: bottom 0.35s ease;
+    box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.644);
+}
+
+.toast.show {
+    bottom: 2rem;
+}
+
+.toast.success {
+    border-color: #22c55e;
+    color: #22c55e;
+}
+
+.toast.error {
+    border-color: #ff4444;
+    color: #ff4444;
+}
+
+.toast.info {
+    border-color: yellow;
+    color: yellow;
+}
+
+/* ===== RESPONSIVE + HAMBURGER ===== */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+
+    #option nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    #option ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        gap: 0;
+        padding-top: 0.5rem;
+    }
+
+    #option ul.show {
+        display: flex;
+    }
+
+    #option nav {
+        flex-wrap: wrap;
+    }
+
+    #option li {
+        text-align: center;
+        padding: 0.4rem 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    #option a {
+        display: block;
+        padding: 0.5rem 1rem;
+    }
+
+    .stats-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .stat-card {
+        min-width: unset;
+    }
+
+    .form-row {
+        flex-direction: column;
+    }
+
+    .form-field {
+        min-width: unset;
+    }
+
+    .admin-card {
+        margin: 0 0.5rem;
+    }
+}
